@@ -17,4 +17,6 @@ using Epicalyx_Game_Reviews_.NET_5.Models;
         public DbSet<Epicalyx_Game_Reviews_.NET_5.Models.FinalReview> FinalReview { get; set; }
 
         public DbSet<Epicalyx_Game_Reviews_.NET_5.Models.User> User { get; set; }
+
+        public DbSet<Epicalyx_Game_Reviews_.NET_5.Models.AspectReview> AspectReview { get; set; }
     }

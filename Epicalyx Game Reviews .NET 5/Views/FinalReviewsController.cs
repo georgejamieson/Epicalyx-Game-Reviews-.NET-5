@@ -48,7 +48,7 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
         // GET: FinalReviews/Create
         public IActionResult Create()
         {
-            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "AgeRating");
+            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "GameName");
             ViewData["UserID"] = new SelectList(_context.Set<User>(), "UserID", "UserID");
             return View();
         }
@@ -66,9 +66,10 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "AgeRating", finalReview.GameID);
+            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "GameName", finalReview.GameID);
             ViewData["UserID"] = new SelectList(_context.Set<User>(), "UserID", "UserID", finalReview.UserID);
             return View(finalReview);
+            
         }
 
         // GET: FinalReviews/Edit/5
@@ -84,7 +85,7 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
             {
                 return NotFound();
             }
-            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "AgeRating", finalReview.GameID);
+            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "GameName", finalReview.GameID);
             ViewData["UserID"] = new SelectList(_context.Set<User>(), "UserID", "UserID", finalReview.UserID);
             return View(finalReview);
         }
@@ -121,7 +122,7 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "AgeRating", finalReview.GameID);
+            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "GameName", finalReview.GameID);
             ViewData["UserID"] = new SelectList(_context.Set<User>(), "UserID", "UserID", finalReview.UserID);
             return View(finalReview);
         }

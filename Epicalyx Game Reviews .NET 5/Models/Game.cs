@@ -9,14 +9,18 @@ namespace Epicalyx_Game_Reviews_.NET_5.Models
         [Required]
         [Display(Name = "Game Name")]
         public string GameName { get; set; }
+
         [Display(Name = "Age Rating")]
         [Required]
         [StringLength(3)]
         public string AgeRating { get; set; }
+
         [Required]
         public string Genre { get; set; }
+
         [Required]
         public string Publisher { get; set; }
+
         [Display(Name = "Release Year")]
         [Required]
         public int ReleaseYear { get; set; }
