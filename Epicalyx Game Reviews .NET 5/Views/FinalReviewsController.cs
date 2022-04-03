@@ -49,7 +49,7 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
         public IActionResult Create()
         {
             ViewData["GameID"] = new SelectList(_context.Game, "GameID", "GameName");
-            ViewData["UserID"] = new SelectList(_context.Set<User>(), "UserID", "UserID");
+            ViewData["UserID"] = new SelectList(_context.Set<User>(), "UserID", "Username");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "GameName", finalReview.GameID);
-            ViewData["UserID"] = new SelectList(_context.Set<User>(), "UserID", "UserID", finalReview.UserID);
+            ViewData["GameID"] = new SelectList(_context.Game, "GameName", "GameID", finalReview.GameID);
+            ViewData["UserID"] = new SelectList(_context.Set<User>(), "Username", "UserID", finalReview.UserID);
             return View(finalReview);
             
         }
@@ -86,7 +86,7 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
                 return NotFound();
             }
             ViewData["GameID"] = new SelectList(_context.Game, "GameID", "GameName", finalReview.GameID);
-            ViewData["UserID"] = new SelectList(_context.Set<User>(), "UserID", "UserID", finalReview.UserID);
+            ViewData["UserID"] = new SelectList(_context.Set<User>(), "UserID", "Username", finalReview.UserID);
             return View(finalReview);
         }
 
@@ -122,8 +122,8 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "GameName", finalReview.GameID);
-            ViewData["UserID"] = new SelectList(_context.Set<User>(), "UserID", "UserID", finalReview.UserID);
+            ViewData["GameID"] = new SelectList(_context.Game, "GameName", "GameID" );
+            ViewData["UserID"] = new SelectList(_context.Set<User>(), "Username", "UserID");
             return View(finalReview);
         }
 

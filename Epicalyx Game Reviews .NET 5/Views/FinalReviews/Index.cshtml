@@ -38,10 +38,10 @@
                 ★
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Game.AgeRating)
+                @Html.DisplayFor(modelItem => item.Game.GameName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.UserID)
+                @Html.DisplayFor(modelItem => item.User.Username)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.FinalReviewID">Edit</a> |
