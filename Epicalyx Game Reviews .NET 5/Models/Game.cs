@@ -11,9 +11,11 @@ namespace Epicalyx_Game_Reviews_.NET_5.Models
         public string GameName { get; set; }
 
         [Display(Name = "Age Rating")]
-        [Required]
+     
         [StringLength(3)]
+        [DataType(DataType.Custom)]
         public string AgeRating { get; set; }
+        
 
         [Required]
         public string Genre { get; set; }

@@ -3,14 +3,16 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Epicalyx_Game_Reviews_.NET_5.Migrations
 {
     [DbContext(typeof(Epicalyx_Game_Reviews_NET_5ContextDb))]
-    partial class Epicalyx_Game_Reviews_NET_5ContextDbModelSnapshot : ModelSnapshot
+    [Migration("20220403105058_updateGame")]
+    partial class updateGame
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

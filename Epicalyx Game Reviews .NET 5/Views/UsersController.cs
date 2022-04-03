@@ -53,7 +53,7 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserID,Username,DateOfBirth,ProfilePic")] User user)
+        public async Task<IActionResult> Create([Bind("UserID,Username,DateOfBirth,ProfilePic,Password")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserID,Username,DateOfBirth,ProfilePic")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("UserID,Username,DateOfBirth,ProfilePic,Password")] User user)
         {
             if (id != user.UserID)
             {

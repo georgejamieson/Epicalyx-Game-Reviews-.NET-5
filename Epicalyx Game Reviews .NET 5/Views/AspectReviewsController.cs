@@ -48,8 +48,8 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
         // GET: AspectReviews/Create
         public IActionResult Create()
         {
-            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "AgeRating");
-            ViewData["UserID"] = new SelectList(_context.User, "UserID", "UserID");
+            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "GameName");
+            ViewData["UserID"] = new SelectList(_context.User, "UserID", "Username");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "AgeRating", aspectReview.GameID);
-            ViewData["UserID"] = new SelectList(_context.User, "UserID", "UserID", aspectReview.UserID);
+            ViewData["GameID"] = new SelectList(_context.Game, "GameName", "AgeRating", aspectReview.GameID);
+            ViewData["UserID"] = new SelectList(_context.User, "Username", "UserID", aspectReview.UserID);
             return View(aspectReview);
         }
 
@@ -84,8 +84,8 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
             {
                 return NotFound();
             }
-            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "AgeRating", aspectReview.GameID);
-            ViewData["UserID"] = new SelectList(_context.User, "UserID", "UserID", aspectReview.UserID);
+            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "GameName", aspectReview.GameID);
+            ViewData["UserID"] = new SelectList(_context.User, "UserID", "Username", aspectReview.UserID);
             return View(aspectReview);
         }
 
@@ -121,8 +121,8 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GameID"] = new SelectList(_context.Game, "GameID", "AgeRating", aspectReview.GameID);
-            ViewData["UserID"] = new SelectList(_context.User, "UserID", "UserID", aspectReview.UserID);
+            ViewData["GameID"] = new SelectList(_context.Game, "Gamename", "GameID", aspectReview.GameID);
+            ViewData["UserID"] = new SelectList(_context.User, "Username", "UserID", aspectReview.UserID);
             return View(aspectReview);
         }
 
