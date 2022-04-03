@@ -13,7 +13,7 @@ namespace Epicalyx_Game_Reviews_.NET_5.Models
         [Display(Name = "Age Rating")]
      
         [StringLength(3)]
-        [DataType(DataType.Custom)]
+        
         public string AgeRating { get; set; }
         
 
