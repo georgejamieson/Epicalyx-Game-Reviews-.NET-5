@@ -19,10 +19,25 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
         }
 
         // GET: FinalReviews
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
+
+
             var epicalyx_Game_Reviews_NET_5ContextDb = _context.FinalReview.Include(f => f.Game).Include(f => f.User);
+
+            var finalReviews = from m in _context.FinalReview
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                finalReviews = finalReviews.Where(s => s.FinalRating.Equals(searchString));
+            }
+
+            
             return View(await epicalyx_Game_Reviews_NET_5ContextDb.ToListAsync());
+            return View(await finalReviews.ToListAsync());
+
+
         }
 
         // GET: FinalReviews/Details/5
@@ -162,5 +177,8 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
         {
             return _context.FinalReview.Any(e => e.FinalReviewID == id);
         }
+
+        
     }
 }
+
