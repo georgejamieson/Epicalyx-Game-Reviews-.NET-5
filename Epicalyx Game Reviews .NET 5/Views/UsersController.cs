@@ -21,7 +21,9 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
         // GET: Users
         public async Task<IActionResult> Index()
         {
+           
             return View(await _context.User.ToListAsync());
+
         }
 
         // GET: Users/Details/5
@@ -34,6 +36,7 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
 
             var user = await _context.User
                 .FirstOrDefaultAsync(m => m.UserID == id);
+           
             if (user == null)
             {
                 return NotFound();

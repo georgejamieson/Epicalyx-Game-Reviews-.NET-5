@@ -14,10 +14,10 @@ namespace Epicalyx_Game_Reviews_.NET_5.Models
         [Range(0,5, ErrorMessage = "Your rating must be between 0 and 5 Stars (★)")]
         public int FinalRating { get; set; }
 
-        [Display(Name = "Username")]
+        [Display(Name = "Game")]
         public int GameID { get; set; }
 
-        [Display(Name = "User Name")]
+        [Display(Name = "Username")]
         public int UserID { get; set; }
 
 

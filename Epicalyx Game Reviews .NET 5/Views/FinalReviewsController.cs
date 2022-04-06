@@ -22,20 +22,18 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
         public async Task<IActionResult> Index(string searchString)
         {
 
-
-            var epicalyx_Game_Reviews_NET_5ContextDb = _context.FinalReview.Include(f => f.Game).Include(f => f.User);
-
-            var finalReviews = from m in _context.FinalReview
-                         select m;
-
+            ViewData["CurrentFilter"] = searchString;
+            var finalReviews = from s in _context.FinalReview.Include(f => f.Game).Include(f => f.User)
+            select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                finalReviews = finalReviews.Where(s => s.FinalRating.Equals(searchString));
+                finalReviews = finalReviews.Where(s => s.Game.GameName.Contains(searchString));
             }
 
-            
-            return View(await epicalyx_Game_Reviews_NET_5ContextDb.ToListAsync());
-            return View(await finalReviews.ToListAsync());
+            return View(await finalReviews.AsNoTracking().ToListAsync());
+
+       
+         
 
 
         }
