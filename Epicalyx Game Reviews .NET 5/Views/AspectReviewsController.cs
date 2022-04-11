@@ -19,10 +19,17 @@ namespace Epicalyx_Game_Reviews_.NET_5.Views
         }
 
         // GET: AspectReviews
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var epicalyx_Game_Reviews_NET_5ContextDb = _context.AspectReview.Include(a => a.Game).Include(a => a.User);
-            return View(await epicalyx_Game_Reviews_NET_5ContextDb.ToListAsync());
+            ViewData["CurrentFilter"] = searchString;
+            var aspectReviews = from s in _context.AspectReview.Include(f => f.Game).Include(f => f.User)
+                               select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                aspectReviews = aspectReviews.Where(s => s.Game.GameName.Contains(searchString));
+            }
+
+            return View(await aspectReviews.AsNoTracking().ToListAsync());
         }
 
         // GET: AspectReviews/Details/5
