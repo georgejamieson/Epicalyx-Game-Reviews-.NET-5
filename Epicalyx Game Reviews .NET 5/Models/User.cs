@@ -16,8 +16,7 @@ namespace Epicalyx_Game_Reviews_.NET_5.Models
         public DateTime DateOfBirth { get; set; }
         public int ProfilePic { get; set; }
 
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
+       
 
         public List<FinalReview> FinalReview { get; set; }
         public List<AspectReview> AspectReview { get; set; }
