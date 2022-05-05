@@ -25,6 +25,8 @@ namespace Epicalyx_Game_Reviews_.NET_5.Models
 
         [Display(Name = "Release Year")]
         [Required]
+        
+        [Range(1958,2300, ErrorMessage = "Release Year must be between 1958 and 2300" )]
         public int ReleaseYear { get; set; }
 
         public List<FinalReview> FinalReview { get; set; }
