@@ -13,6 +13,7 @@ namespace Epicalyx_Game_Reviews_.NET_5.Models
         
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        
         public DateTime DateOfBirth { get; set; }
         public int ProfilePic { get; set; }
 
