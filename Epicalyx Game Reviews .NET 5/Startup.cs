@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Epicalyx_Game_Reviews_.NET_5
 {
@@ -28,6 +29,22 @@ namespace Epicalyx_Game_Reviews_.NET_5
 
             services.AddDbContext<Epicalyx_Game_Reviews_NET_5ContextDb>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("Epicalyx_Game_Reviews_NET_5ContextDb")));
+
+
+
+            services.AddDefaultIdentity<IdentityUser>
+          (options =>
+          {
+              options.SignIn.RequireConfirmedAccount = true;
+              options.Password.RequireDigit = false;
+              options.Password.RequiredLength = 6;
+              options.Password.RequireNonAlphanumeric = false;
+              options.Password.RequireUppercase = false;
+              options.Password.RequireLowercase = false;
+          })
+      .AddEntityFrameworkStores<Epicalyx_Game_Reviews_NET_5ContextDb>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
