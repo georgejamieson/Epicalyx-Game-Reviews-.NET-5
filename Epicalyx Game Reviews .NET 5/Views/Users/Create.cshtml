@@ -19,8 +19,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="DateOfBirth" class="control-label"></label>
-                <input asp-for="DateOfBirth" class="form-control" />
+                <input asp-for="DateOfBirth" class="form-control"  min="1922-01-01T00:00" max="2009-05-19T23:59"/>
                 <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                <div class="form-group ">
+  
+  
             </div>
             <div class="form-group">
                 <label asp-for="ProfilePic" class="control-label"></label>
